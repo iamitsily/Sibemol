@@ -16,22 +16,25 @@ public class index extends AppCompatActivity {
 
     }
     public void reproductor(View view){
-//        listaMusica.add(new Musica(5,"Suzume","RADWIMPS",R.mipmap.suzume));
+//        listaMusica.add(new Musica(5,1,"Feel Good","Gorillaz",R.mipmap.clinteastwood));
         Intent intent = new Intent(this,reproductorCanciones.class);
         intent.putExtra("id",5);
-        intent.putExtra("nombre","Suzume");
-        intent.putExtra("artista","RADWIMPS");
-        intent.putExtra("img",R.mipmap.suzume);
+        intent.putExtra("nombre","Feel Good");
+        intent.putExtra("artista","Gorillaz");
+        intent.putExtra("img",R.mipmap.clinteastwood);
         startActivity(intent);
     }
     public void listaMusica(View view){
         Intent intent = new Intent(this,listaCanciones.class);
         startActivity(intent);
-
     }
     public void acercaDe(View view){
         Intent intent = new Intent(this,acercaDe.class);
         startActivity(intent);
-        finish();
     }
+    public void playlist(View view){
+        Intent intent = new Intent(this,album.class);
+        startActivity(intent);
+    }
+
 }

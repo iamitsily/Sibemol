@@ -19,13 +19,32 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolderDatos> {
+    private int id, idAlbumInterno, img, pantalla, idAlbumExterno;
+    private String name, author;
+    Context context;
+
     List<Musica> listaMusica;
     List<Musica> listaOriginal;
+    List<Musica>listAlbum = new ArrayList<>();
     Context contex;
     public Adaptador(List<Musica> listaMusica) {
         this.listaMusica = listaMusica;
         this.listaOriginal = new ArrayList<>();
         listaOriginal.addAll(listaMusica);
+    }
+    public Adaptador(Context context, List<Musica>listMusic, int adAlbunExterno, int FromPantalla){
+        this.idAlbumExterno = adAlbunExterno;
+        this.context=context;
+        this.listaMusica = listMusic;
+        this.pantalla = FromPantalla;
+
+        System.out.println(idAlbumExterno+" | ");
+        for (int i=0;i<listMusic.size();i++){
+            if (listMusic.get(i).getIdAlbum()==idAlbumExterno){
+                listAlbum.add(listMusic.get(i));
+            }
+
+        }
     }
     public void filtrado(String musica){
         int longitud = musica.length();
@@ -56,18 +75,31 @@ public class Adaptador extends RecyclerView.Adapter<Adaptador.ViewHolderDatos> {
 
     @Override
     public void onBindViewHolder(@NonNull Adaptador.ViewHolderDatos holder, int position) {
-        holder.nombre.setText(listaMusica.get(position).getNombre());
-        holder.artista.setText(listaMusica.get(position).getArtista());
-        holder.imagenMusica.setImageResource(listaMusica.get(position).getImgCancion());
-        holder.id =listaMusica.get(position).getIdCancion();
-        holder.img = listaMusica.get(position).getImgCancion();
+        if (pantalla==1){
+            holder.nombre.setText(listAlbum.get(position).getNombre());
+            holder.artista.setText(listAlbum.get(position).getArtista());
+            holder.imagenMusica.setImageResource(listAlbum.get(position).getImgCancion());
+            holder.id = listAlbum.get(position).getIdCancion();
+            holder.img = listAlbum.get(position).getImgCancion();
+            holder.setOnClickListener();
 
-        holder.setOnClickListener();
+        }else{
+            holder.nombre.setText(listaMusica.get(position).getNombre());
+            holder.artista.setText(listaMusica.get(position).getArtista());
+            holder.imagenMusica.setImageResource(listaMusica.get(position).getImgCancion());
+            holder.id = listaMusica.get(position).getIdCancion();
+            holder.img = listaMusica.get(position).getImgCancion();
+            holder.setOnClickListener();
+        }
     }
 
     @Override
     public int getItemCount() {
-        return listaMusica.size();
+        if (pantalla==1){
+            return listAlbum.size();
+        }else{
+            return listaMusica.size();
+        }
     }
 
     public class ViewHolderDatos extends RecyclerView.ViewHolder implements View.OnClickListener {

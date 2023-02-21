@@ -7,16 +7,25 @@ import java.util.List;
 
 public class Musica {
 
-    private int idCancion, imgCancion;
+    private int idCancion, imgCancion,idAlbum;
     private String nombre, artista;
     Context context;
     List<Musica> listMusic;
 
-    public Musica(int idCancion, String nombre, String artista, int imgCancion) {
+    public Musica(int idCancion,int idAlbum, String nombre, String artista, int imgCancion) {
         this.idCancion = idCancion;
+        this.idAlbum = idAlbum;
         this.nombre = nombre;
         this.artista = artista;
         this.imgCancion = imgCancion;
+    }
+
+    public int getIdAlbum() {
+        return idAlbum;
+    }
+
+    public void setIdAlbum(int idAlbum) {
+        this.idAlbum = idAlbum;
     }
 
     public int getIdCancion() {

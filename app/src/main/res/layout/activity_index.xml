@@ -74,6 +74,14 @@
             app:icon="@mipmap/reproductor" />
 
         <Button
+            android:id="@+id/button3"
+            android:layout_width="400dp"
+            android:layout_height="70dp"
+            android:onClick="playlist"
+            android:text="Playlist"
+            app:icon="@android:drawable/ic_dialog_dialer" />
+
+        <Button
             android:id="@+id/button2"
             android:layout_width="400dp"
             android:layout_height="70dp"
@@ -82,8 +90,8 @@
             app:icon="@mipmap/listamusica" />
 
         <Button
-            android:id="@+id/button3"
-            android:layout_width="400dp"
+            android:id="@+id/button6"
+            android:layout_width="match_parent"
             android:layout_height="70dp"
             android:onClick="acercaDe"
             android:text="Acerca de"

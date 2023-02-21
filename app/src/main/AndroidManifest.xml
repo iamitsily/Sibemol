@@ -12,6 +12,18 @@
         android:theme="@style/Theme.Material3.DynamicColors.DayNight"
         tools:targetApi="31">
         <activity
+            android:name=".cancionesAlbum"
+            android:exported="false" />
+        <activity
+            android:name=".album"
+            android:exported="false" />
+        <activity
+            android:name=".registro"
+            android:exported="false" />
+        <activity
+            android:name=".login"
+            android:exported="false" />
+        <activity
             android:name=".acercaDe"
             android:exported="false" />
         <activity
