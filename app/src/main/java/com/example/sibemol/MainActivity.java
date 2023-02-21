@@ -96,8 +96,7 @@ public class MainActivity extends AppCompatActivity {
         musica[22] = MediaPlayer.create(this,R.raw.lights);
         musica[23] = MediaPlayer.create(this,R.raw.staygold);
 
-
-        Intent intent = new Intent(this,index.class);
+        Intent intent = new Intent(this,login.class);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override

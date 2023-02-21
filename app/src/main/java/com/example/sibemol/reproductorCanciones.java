@@ -138,6 +138,7 @@ public class reproductorCanciones extends AppCompatActivity {
     }
     public void reset() {
         listaMusica.clear();
+        listaAlbum.clear();
         listaAlbum.add(new albumClass(0,"Born Pink","Blackpink",R.mipmap.pinkvenom));
         listaAlbum.add(new albumClass(1,"Demon Days","Gorillaz",R.mipmap.clinteastwood));
         listaAlbum.add(new albumClass(2,"Wiped Out","The Neighbourhood",R.mipmap.wires));
